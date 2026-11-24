@@ -1,0 +1,22 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class BirdScript : MonoBehaviour
+{
+    private Rigidbody2D rb;
+    [SerializeField] private float flapStrength = 2f;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            rb.linearVelocity = Vector2.up * flapStrength;
+        }
+    }
+}
